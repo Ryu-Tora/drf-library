@@ -122,5 +122,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("Authorize",),
+}
 
 AUTH_USER_MODEL = "user.User"
