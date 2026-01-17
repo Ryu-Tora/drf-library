@@ -17,3 +17,6 @@ class Borrowing(models.Model):
         on_delete=models.CASCADE,
         related_name="borrowings"
     )
+
+    def __str__(self):
+        return f"Borrowing: {self.borrow_date} - {self.expected_return_date}"
