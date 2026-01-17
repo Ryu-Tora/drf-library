@@ -13,7 +13,7 @@ class Borrowing(models.Model):
         related_name="borrowings"
     )
     user_id = models.ForeignKey(
-        "users.User",
+        "user.User",
         on_delete=models.CASCADE,
         related_name="borrowings"
     )

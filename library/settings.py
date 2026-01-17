@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "user",
     "borrow",
     "payment",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,5 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "user.User"
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

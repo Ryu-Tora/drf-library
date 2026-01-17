@@ -8,6 +8,7 @@ from payment.serializers import PaymentDetailSerializer, PaymentSerializer
 
 class PaymentViewSet(ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
+    queryset = Payment.objects.all()
 
     def get_queryset(self):
         queryset = Payment.objects.select_related(
