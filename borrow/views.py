@@ -11,7 +11,7 @@ from borrow.serializers import BorrowingSerializer, BorrowingDetailSerializer, B
 class BorrowingViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
-    def get_serializer_class(self):
+    def get_queryset(self):
         queryset = Borrowing.objects.select_related("user", "book")
 
         if not self.request.user.is_staff:
