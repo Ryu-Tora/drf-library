@@ -8,6 +8,25 @@ from borrow.models import Borrowing
 User = get_user_model()
 
 
+class BorrowingCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Borrowing
+        fields = ("id", "book", "expected_return_date")
+
+    def validate_book(self, book):
+        if book.inventory == 0:
+            raise serializers.ValidationError("Book is out of stock")
+        return book
+
+    def create(self, validated_data):
+        book = validated_data.pop("book")
+        book.inventory =- 1
+        book.save()
+
+        validated_data["user"] = self.context.get("request").user
+        return super().create(validated_data)
+
+
 class BorrowingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Borrowing
