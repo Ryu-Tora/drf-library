@@ -1,33 +1,33 @@
 # Library Management System
 
-Цей проєкт реалізує систему управління бібліотекою з функціоналом для книг, користувачів, позик та платежів. Проєкт побудований на **Django + Django REST Framework**, з аутентифікацією через **JWT** та запуском через **Docker**.
+This project implements a library management system with functionality for books, users, borrowings, and payments. The project is built using **Django + Django REST Framework**, with **JWT authentication** and runs using **Docker**.
 
 ---
 
-## 🚀 Основні можливості
+## 🚀 Core Features
 
 ### Books Service
-- CRUD для книг
-- Поля: `title`, `author`, `cover` (HARD/SOFT), `inventory`, `daily_fee`
-- Доступ:
-  - **Admin**: створення/редагування/видалення книг
-  - **Усі користувачі (навіть неавторизовані)**: перегляд списку книг
+- Full CRUD functionality for books
+- Fields: `title`, `author`, `cover` (HARD/SOFT), `inventory`, `daily_fee`
+- Access rules:
+  - **Admin**: create/update/delete books
+  - **All users (including unauthenticated)**: list and view books
 
 ### Payments Service
-- Створення платежів за позики
-- Поля: `status` (PENDING/PAID), `type` (PAYMENT/FINE), `money_to_pay`, `session_url`, `session_id`, `borrowing`
-- List та Detail endpoints
-- Non-admin бачить лише свої платежі, admin — всі
+- Payment creation for borrowings
+- Fields: `status` (PENDING/PAID), `type` (PAYMENT/FINE), `money_to_pay`, `session_url`, `session_id`, `borrowing`
+- List and detail endpoints
+- Non-admin users can see only their own payments, admins can see all payments
 
 ---
 
-## 🛠 Стек технологій
+## 🛠 Tech Stack
 
 - Python 3.10+
 - Django 4.x
 - Django REST Framework
 - PostgreSQL
-- Docker + Docker Compose
+- Docker & Docker Compose
 - djangorestframework-simplejwt (JWT)
 
 ## How to start
